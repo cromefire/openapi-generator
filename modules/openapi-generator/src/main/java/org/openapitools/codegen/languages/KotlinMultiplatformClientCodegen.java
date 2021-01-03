@@ -29,6 +29,7 @@ public class KotlinMultiplatformClientCodegen extends AbstractKotlinCodegen {
         public static final String KOTLIN_VERSION = "kotlinVersion";
         public static final String KTOR_VERSION = "ktorVersion";
         public static final String KOTLINX_COROUTINES_VERSION = "kotlinxCoroutinesVersion";
+        public static final String KOTLINX_SERIALIZATION_VERSION = "kotlinxSerializationVersion";
         public static final String GRADLE_VERSION = "gradleVersion";
         public static final String ANDROID_GRADLE_VERSION = "androidGradleVersion";
         public static final String KOTLINX_DATETIME_VERSION = "kotlinxDatetimeVersion";
@@ -50,6 +51,7 @@ public class KotlinMultiplatformClientCodegen extends AbstractKotlinCodegen {
             public static final String KOTLIN_VERSION = "1.4.21";
             public static final String KTOR_VERSION = "1.4.1";
             public static final String KOTLINX_COROUTINES_VERSION = "1.4.1";
+            public static final String KOTLINX_SERIALIZATION_VERSION = "1.0.1";
             public static final String GRADLE_VERSION = "6.6.1";
             public static final String ANDROID_GRADLE_VERSION = "4.0.1";
             public static final String KOTLINX_DATETIME_VERSION = "0.1.1";
@@ -247,6 +249,7 @@ public class KotlinMultiplatformClientCodegen extends AbstractKotlinCodegen {
         cliOptions.add(CliOption.newString(Options.KOTLIN_VERSION, "Sets the kotlin version used").defaultValue(Options.Defaults.KOTLIN_VERSION));
         cliOptions.add(CliOption.newString(Options.KTOR_VERSION, "Sets the ktor version used").defaultValue(Options.Defaults.KTOR_VERSION));
         cliOptions.add(CliOption.newString(Options.KOTLINX_COROUTINES_VERSION, "Sets the kotlinx.coroutines version used").defaultValue(Options.Defaults.KOTLINX_COROUTINES_VERSION));
+        cliOptions.add(CliOption.newString(Options.KOTLINX_SERIALIZATION_VERSION, "Sets the kotlinx.serialization version used").defaultValue(Options.Defaults.KOTLINX_SERIALIZATION_VERSION));
         cliOptions.add(CliOption.newString(Options.GRADLE_VERSION, "Sets the gradle version used").defaultValue(Options.Defaults.GRADLE_VERSION));
         cliOptions.add(CliOption.newString(Options.ANDROID_GRADLE_VERSION, "Sets the android gradle plugin version used").defaultValue(Options.Defaults.ANDROID_GRADLE_VERSION));
 
@@ -319,6 +322,7 @@ public class KotlinMultiplatformClientCodegen extends AbstractKotlinCodegen {
         String kotlinVersion = stringOption(Options.KOTLIN_VERSION, Options.Defaults.KOTLIN_VERSION);
         String ktorVersion = stringOption(Options.KTOR_VERSION, Options.Defaults.KTOR_VERSION);
         String kotlinxCoroutinesVersion = stringOption(Options.KOTLINX_COROUTINES_VERSION, Options.Defaults.KOTLINX_COROUTINES_VERSION);
+        String kotlinxSerializationVersion = stringOption(Options.KOTLINX_SERIALIZATION_VERSION, Options.Defaults.KOTLINX_SERIALIZATION_VERSION);
         String gradleVersion = stringOption(Options.GRADLE_VERSION, Options.Defaults.GRADLE_VERSION);
         String androidGradleVersion = stringOption(Options.ANDROID_GRADLE_VERSION, Options.Defaults.ANDROID_GRADLE_VERSION);
         String kotlinxDatetimeVersion = stringOption(Options.KOTLINX_DATETIME_VERSION, Options.Defaults.KOTLINX_DATETIME_VERSION);
