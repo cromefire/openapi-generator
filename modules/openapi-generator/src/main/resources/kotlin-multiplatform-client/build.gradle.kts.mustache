@@ -11,6 +11,7 @@ group = "{{groupId}}"
 version = "{{artifactVersion}}"
 
 val ktorVersion = "{{ktorVersion}}"
+val kotlinxCoroutinesVersion = "{{kotlinxCoroutinesVersion}}"
 {{#dateLibraryKotlinx}}
 val kotlinxDatetimeVersion = "{{kotlinxDatetimeVersion}}"
 {{/dateLibraryKotlinx}}
@@ -75,6 +76,7 @@ kotlin {
                 api("io.ktor:ktor-client-core:$ktorVersion")
                 api("io.ktor:ktor-client-json:$ktorVersion")
                 api("io.ktor:ktor-client-serialization:$ktorVersion")
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
                 {{#dateLibraryKotlinx}}
                 api("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinxDatetimeVersion")
                 {{/dateLibraryKotlinx}}
