@@ -215,3 +215,18 @@ tasks {
     }
 }
 {{/jvmEnabled}}
+
+<!-- force explicit versions for kotlin/kotlinx dependencies -->
+configurations.all {
+    resolutionStrategy {
+        eachDependency {
+            when (requested.group) {
+                "org.jetbrains.kotlin" -> useVersion("{{kotlinVersion}}")
+                "org.jetbrains.kotlinx" -> when {
+                    requested.name.startsWith("kotlinx-coroutines") -> useVersion(kotlinxCoroutinesVersion)
+                    requested.name.startsWith("kotlinx-serialization") -> useVersion(kotlinxSerializationVersion)
+                }
+            }
+        }
+    }
+}
