@@ -299,15 +299,15 @@ public class KotlinMultiplatformClientCodegen extends AbstractKotlinCodegen {
             supportingFiles.add(new SupportingFile("common/main/ApiClientAsync.kt.mustache", srcDir, apiClientName + asyncSuffix + ".kt"));
         }
         supportingFiles.add(new SupportingFile(infraSrc + "ApiClientBase.kt.mustache", infraDest, "ApiClientBase.kt"));
-        supportingFiles.add(new SupportingFile(infraSrc + "requestHelpers.kt.mustache", infraDest, "requestHelpers.kt"));
+        supportingFiles.add(new SupportingFile(infraSrc + "requestHelpers.kt.mustache", infraDest, "RequestHelpers.kt"));
         supportingFiles.add(new SupportingFile(infraSrc + "Base64ByteArray.kt.mustache", infraDest, "Base64ByteArray.kt"));
-        supportingFiles.add(new SupportingFile(infraSrc + "bytes.kt.mustache", infraDest, "bytes.kt"));
+        supportingFiles.add(new SupportingFile(infraSrc + "bytes.kt.mustache", infraDest, "Bytes.kt"));
         supportingFiles.add(new SupportingFile(infraSrc + "OctetByteArray.kt.mustache", infraDest, "OctetByteArray.kt"));
         if (dateLibrary == Options.DateLibrary.KOTLINX) {
             supportingFiles.add(new SupportingFile(infraSrc + "DateTime.kt.mustache", infraDest, "DateTime.kt"));
             supportingFiles.add(new SupportingFile(infraSrc + "OffsetDateTime.kt.mustache", infraDest, "OffsetDateTime.kt"));
             if (jvmEnabled) {
-                supportingFiles.add(new SupportingFile("jvm/main/infrastructure/extensions.kt.mustache", jvmDest, "infrastructure/extensions.kt"));
+                supportingFiles.add(new SupportingFile("jvm/main/infrastructure/extensions.kt.mustache", jvmDest, "infrastructure/Extensions.kt"));
             }
         }
 
