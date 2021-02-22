@@ -94,8 +94,7 @@ public open class {{classname}} : ApiClientBase {
             {{#authMethods}}
             {{#-first}}
 
-            {{!TODO: Implement}}
-            //addAuthentication({{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}})
+            addAuthentication({{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}})
             {{/-first}}
             {{/authMethods}}
             {{#queryParams}}
