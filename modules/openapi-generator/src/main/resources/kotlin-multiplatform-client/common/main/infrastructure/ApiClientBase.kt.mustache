@@ -64,31 +64,31 @@ public abstract class ApiClientBase {
     }
     {{#hasAuthMethods}}
 
-    protected fun HttpRequestBuilder.addAuthentication(apiKeyAuths: List<String>, basicAuths: List<String>, bearerAuths: List<String>, oAuths: List<String>) {
-        for (name in apiKeyAuths) {
-            val auth = apiKeyAuth[name] ?: throw IllegalStateException("ApiKeyAuth \"$name\" was configured, but not found")
-            if (auth.isConfigured) {
+    protected fun HttpRequestBuilder.addAuthentication(vararg auths: String) {
+        for (name in auths) {
+            val auth = apiKeyAuth[name]
+            if (auth?.isConfigured == true) {
                 auth.configure(this)
                 return
             }
         }
-        for (name in basicAuths) {
-            val auth = basicAuth[name] ?: throw IllegalStateException("HttpBasicAuth \"$name\" was configured, but not found")
-            if (auth.isConfigured) {
+        for (name in auths) {
+            val auth = basicAuth[name]
+            if (auth?.isConfigured == true) {
                 auth.configure(this)
                 return
             }
         }
-        for (name in bearerAuths) {
-            val auth = bearerAuth[name] ?: throw IllegalStateException("HttpBearerAuth \"$name\" was configured, but not found")
-            if (auth.isConfigured) {
+        for (name in auths) {
+            val auth = bearerAuth[name]
+            if (auth?.isConfigured == true) {
                 auth.configure(this)
                 return
             }
         }
-        for (name in oAuths) {
-            val auth = oAuth[name] ?: throw IllegalStateException("OAuth \"$name\" was configured, but not found")
-            if (auth.isConfigured) {
+        for (name in auths) {
+            val auth = oAuth[name]
+            if (auth?.isConfigured == true) {
                 auth.configure(this)
                 return
             }
@@ -96,10 +96,10 @@ public abstract class ApiClientBase {
         throw IllegalStateException(
             """
             No valid authentication configured, please configure one of the following:
-                API Key Authentication: ${apiKeyAuths.joinToString()}
-                HTTP Bearer Authentication: ${apiKeyAuths.joinToString()}
-                HTTP Basic Authentication: ${apiKeyAuths.joinToString()}
-                OAuth: ${apiKeyAuths.joinToString()}
+                API Key Authentication: ${apiKeyAuth.keys.joinToString()}
+                HTTP Bearer Authentication: ${bearerAuth.keys.joinToString()}
+                HTTP Basic Authentication: ${basicAuth.keys.joinToString()}
+                OAuth: ${oAuth.keys.joinToString()}
             """.trimIndent()
         )
     }
